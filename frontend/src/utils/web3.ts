@@ -1,5 +1,5 @@
-import { ethers } from 'ethers';
-import stakingABI from '../../../backend/artifacts/contracts/Stake.sol/Staking.json';
+import { ethers, Contract } from 'ethers';
+import stakingABI from './Staking.json';
 
 const provider = new ethers.JsonRpcProvider(
   `https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_KEY}`
@@ -11,4 +11,4 @@ export const stakingContract = new ethers.Contract(
   contractAddress,
   stakingABI.abi,
   provider
-);
+) as Contract;

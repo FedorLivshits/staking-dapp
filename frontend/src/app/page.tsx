@@ -1,33 +1,52 @@
-import { Wallet } from 'lucide-react';
-import Image from 'next/image';
+'use client';
+
+import { ActionForm } from './components/ActionForm';
+import { ConnectWalletButton } from './components/ConnectWalletButton';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { StakingInfo } from './components/StakingInfo';
+import { Tabs } from './components/Tabs';
+import { useWallet } from './hooks/useWallet';
 
 export default function Home() {
+  const {
+    isStakeMode,
+    setIsStakeMode,
+    balance,
+    stakedBalance,
+    stakeAmount,
+    setStakeAmount,
+    account,
+    handleStake,
+    handleUnstake,
+    connectWallet,
+    isLoading,
+  } = useWallet();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-              <Image
-                className="dark"
-                src="/ethereum.svg"
-                alt="Ethereum logo"
-                width={34}
-                height={34}
-                priority
+        <div className="max-w-lg mx-auto bg-gray-800 rounded-xl shadow-lg p-8">
+          <Header />
+          <Tabs isStakeMode={isStakeMode} setIsStakeMode={setIsStakeMode} />
+          {!account ? (
+            <ConnectWalletButton connectWallet={connectWallet} />
+          ) : (
+            <>
+              <ActionForm
+                balance={balance}
+                stakeAmount={stakeAmount}
+                setStakeAmount={setStakeAmount}
+                isStakeMode={isStakeMode}
+                handleStake={handleStake}
+                handleUnstake={handleUnstake}
+                isLoading={isLoading}
               />
-              ETH Staking DApp
-            </h1>
-            <p className="text-gray-400 mb-8">
-              Stake your ETH and earn rewards
-            </p>
-          </div>
-          <div className="text-center">
-            <button className="btn btn-primary w-64">
-              <Wallet className="mr-2 h-5 w-5" /> Connect wallet
-            </button>
-          </div>
+              <StakingInfo stakedBalance={stakedBalance} />
+            </>
+          )}
         </div>
+        <Footer />
       </div>
     </div>
   );
