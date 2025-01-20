@@ -2,7 +2,8 @@
 
 This is a decentralized application (DApp) for staking Ethereum (ETH) tokens built using **Next.js** for the frontend and **Hardhat** for the backend. The application interacts with a smart contract deployed on the Sepolia test network to allow users to stake and unstake ETH and view their staking details.
 
-![Staking DApp](https://staking-dapp-sigma-six.vercel.app)
+[Staking DApp](https://staking-dapp-sigma-six.vercel.app)
+![dapp](images/preview.png)
 
 ---
 
@@ -19,11 +20,13 @@ This is a decentralized application (DApp) for staking Ethereum (ETH) tokens bui
 ## Tech Stack
 
 ### Frontend
+
 - **Framework:** [Next.js](https://nextjs.org/)
 - **Styling:** [DaisyUI](https://daisyui.com/) and Tailwind CSS
 - **Wallet Integration:** [Ethers.js](https://docs.ethers.io/)
 
 ### Backend
+
 - **Smart Contract Development:** [Hardhat](https://hardhat.org/)
 - **Language:** Solidity
 - **Network:** Sepolia (Ethereum Testnet)
@@ -33,11 +36,14 @@ This is a decentralized application (DApp) for staking Ethereum (ETH) tokens bui
 ## Setup Instructions
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) installed on your machine
 - [MetaMask](https://metamask.io/) extension installed
 - Sepolia test ETH (can be obtained from a [faucet](https://sepoliafaucet.com/))
 
 ### Clone the Repository
+
 ```bash
 git clone https://github.com/FedorLivshits/staking-dapp.git
 cd staking-dapp
+```
